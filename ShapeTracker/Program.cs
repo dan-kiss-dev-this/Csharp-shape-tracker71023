@@ -60,7 +60,7 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to check a new triangle (new) or show all triangles (show)");
-      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'show' to see all trianges. To exit, enter any key.");
+      Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'show' to see all trianges or 'clear' to clear all input. To exit, enter any key.");
       string userResponse = Console.ReadLine();
       if (userResponse == "new" || userResponse == "New")
       {
@@ -79,6 +79,11 @@ namespace ShapeTracker
           Console.WriteLine($"Triangle side 3 lenght: {allTriangles[count].GetSide3()}");
           Console.WriteLine("-----------");
         }
+        Main();
+      }
+      else if (userResponse.ToLower() == "clear")
+      {
+        Triangle.ClearAll();
         Main();
       }
       else
