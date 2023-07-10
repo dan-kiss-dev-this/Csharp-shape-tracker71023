@@ -93,3 +93,5 @@ namespace ShapeTracker
     }
   }
 }
+
+// ($"The area of your rectangle is ${rectangleArea}")

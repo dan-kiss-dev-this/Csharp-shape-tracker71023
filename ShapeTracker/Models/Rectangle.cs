@@ -10,6 +10,12 @@ namespace ShapeTracker.Models
       Side1 = side1;
       Side2 = side2;
     }
+
+    public int GetArea()
+    {
+      int rectangleArea = Side1 * Side2;
+      return rectangleArea;
+    }
     // side1, side2, instances, GetInstances
     //CalculateArea function
   }
