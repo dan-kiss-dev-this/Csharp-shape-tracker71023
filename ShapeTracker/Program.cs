@@ -1,5 +1,6 @@
 using System;
 using ShapeTracker.Models;
+using System.Collections.Generic;
 
 namespace ShapeTracker
 {
@@ -58,7 +59,7 @@ namespace ShapeTracker
       Console.WriteLine("Your result is: " + result + ".");
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
-      Console.WriteLine("Would you like to check a new triangle (new) or show all triangles (show?");
+      Console.WriteLine("Would you like to check a new triangle (new) or show all triangles (show)");
       Console.WriteLine("Please enter 'new' to check the type of a new triangle, 'show' to see all trianges. To exit, enter any key.");
       string userResponse = Console.ReadLine();
       if (userResponse == "new" || userResponse == "New")
@@ -67,7 +68,18 @@ namespace ShapeTracker
       }
       else if (userResponse.ToLower() == "show")
       {
-        Console.WriteLine(Triangle.GetAll());
+        List<Triangle> allTriangles = Triangle.GetAll();
+        for (int count = 0; count < allTriangles.Count; count++)
+        {
+          Console.WriteLine("-----------");
+          // Note the count is incremented by one o show a user friendly count
+          Console.WriteLine($"Triangle position: {count + 1}");
+          Console.WriteLine($"Triangle side 1 lenght: {allTriangles[count].Side1}");
+          Console.WriteLine($"Triangle side 2 lenght: {allTriangles[count].Side2}");
+          Console.WriteLine($"Triangle side 3 lenght: {allTriangles[count].GetSide3()}");
+          Console.WriteLine("-----------");
+        }
+        Main();
       }
       else
       {
